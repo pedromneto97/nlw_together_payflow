@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nlw_together_payflow/modules/login/login_screen.dart';
 
-import 'modules/splash/splash_screen.dart';
 import 'shared/themes/colors.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class AppWidget extends StatelessWidget {
         primaryColor: AppColors.primary,
         scaffoldBackgroundColor: AppColors.background,
       ),
-      home: const SplashScreen(),
+      home: const LoginScreen(),
     );
   }
 }
