@@ -1,5 +1,5 @@
-class Images {
-  const Images._();
+class AppImages {
+  const AppImages._();
 
   static const logoFull = 'assets/images/logofull.png';
   static const logoMini = 'assets/images/logomini.png';

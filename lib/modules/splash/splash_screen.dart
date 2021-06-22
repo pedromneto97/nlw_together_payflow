@@ -11,10 +11,10 @@ class SplashScreen extends StatelessWidget {
       body: Stack(
         children: [
           Center(
-            child: Image.asset(Images.union),
+            child: Image.asset(AppImages.union),
           ),
           Center(
-            child: Image.asset(Images.logoFull),
+            child: Image.asset(AppImages.logoFull),
           ),
         ],
       ),
