@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:nlw_together_payflow/shared/themes/colors.dart';
-import 'package:nlw_together_payflow/shared/themes/images.dart';
-import 'package:nlw_together_payflow/shared/themes/text_styles.dart';
-import 'package:nlw_together_payflow/shared/widgets/social_login/social_login_button.dart';
+
+import '../../shared/themes/colors.dart';
+import '../../shared/themes/images.dart';
+import '../../shared/themes/text_styles.dart';
+import '../../shared/widgets/social_login/social_login_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: size.width,
         height: size.height,
         child: Stack(

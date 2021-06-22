@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nlw_together_payflow/modules/login/login_screen.dart';
 
+import 'modules/login/login_screen.dart';
 import 'shared/themes/colors.dart';
 
 void main() {
