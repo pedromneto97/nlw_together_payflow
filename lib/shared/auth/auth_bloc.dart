@@ -8,9 +8,6 @@ import 'package:meta/meta.dart';
 import '../models/user.dart';
 
 part 'auth_event.dart';
-
-t.dart';
-
 part 'auth_state.dart';
 
 class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
