@@ -6,6 +6,8 @@ import '../../shared/themes/text_styles.dart';
 import '../../shared/widgets/social_login/social_login_button.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const screenName = 'login_screen';
+
   const LoginScreen({Key? key}) : super(key: key);
 
   @override

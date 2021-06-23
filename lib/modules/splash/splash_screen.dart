@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../shared/themes/images.dart';
 
 class SplashScreen extends StatelessWidget {
+  static const screenName = 'splash_screen';
+
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
