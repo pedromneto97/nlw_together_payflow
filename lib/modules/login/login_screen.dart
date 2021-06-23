@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../shared/auth/auth_bloc.dart';
 import '../../shared/themes/colors.dart';
 import '../../shared/themes/images.dart';
 import '../../shared/themes/text_styles.dart';
@@ -69,8 +71,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       right: size.height * 0.05,
                       bottom: size.height * 0.04,
                     ),
-                    child: SocialLoginButton(
-                      onTap: () {},
+                    child: BlocBuilder<AuthBloc, AuthState>(
+                      builder: (context, state) => SocialLoginButton(
+                        onTap: () => BlocProvider.of<AuthBloc>(context).add(
+                          const AuthLoginEvent(),
+                        ),
+                        disabled: state is InProgressAuthState,
+                      ),
                     ),
                   ),
                 ],

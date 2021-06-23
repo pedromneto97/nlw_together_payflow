@@ -8,15 +8,17 @@ class SocialLoginButton extends StatelessWidget {
   const SocialLoginButton({
     Key? key,
     required this.onTap,
+    required this.disabled,
   }) : super(key: key);
 
   final VoidCallback onTap;
+  final bool disabled;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return ElevatedButton(
-      onPressed: onTap,
+      onPressed: disabled ? null : onTap,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
