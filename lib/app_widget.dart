@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'modules/barcode/barcode_screen.dart';
 import 'modules/home/home_screen.dart';
 import 'modules/login/login_screen.dart';
 import 'modules/splash/splash_screen.dart';
@@ -40,6 +41,7 @@ class AppWidget extends StatelessWidget {
             SplashScreen.screenName: (context) => const SplashScreen(),
             LoginScreen.screenName: (context) => const LoginScreen(),
             HomeScreen.screenName: (context) => const HomeScreen(),
+            BarcodeScreen.screenName: (context) => const BarcodeScreen(),
           },
           navigatorKey: NavigationService().navigatorKey,
         ),

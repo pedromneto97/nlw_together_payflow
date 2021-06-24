@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../barcode/barcode_screen.dart';
 import 'widgets/bottom_app_bar.dart';
 import 'widgets/home_app_bar.dart';
 
@@ -44,7 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: PayflowBottomAppBar(
         index: currentIndex,
         onChangeIndex: onChangeIndex,
-        onTapAdd: () {},
+        onTapAdd: () => Navigator.of(context).pushNamed(
+          BarcodeScreen.screenName,
+        ),
       ),
     );
   }
