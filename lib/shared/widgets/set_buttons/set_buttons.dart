@@ -21,8 +21,9 @@ class SetButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 56,
+      color: AppColors.shape,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
