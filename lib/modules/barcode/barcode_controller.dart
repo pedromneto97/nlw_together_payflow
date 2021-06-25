@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -50,8 +52,8 @@ class BarcodeScannerController {
       }
 
       return;
-    } catch (e) {
-      print('ERRO DA LEITURA $e');
+    } catch (e, s) {
+      log('Erro na leitura $e', error: e, stackTrace: s, name: 'ERROR');
     }
   }
 
@@ -65,7 +67,7 @@ class BarcodeScannerController {
     status = BarcodeScannerStatus.available();
     Future.delayed(const Duration(seconds: 20)).then((value) {
       if (status.hasBarcode == false) {
-        status = BarcodeScannerStatus.error("Timeout de leitura de boleto");
+        status = BarcodeScannerStatus.error('Timeout de leitura de boleto');
       }
     });
   }
@@ -106,8 +108,8 @@ class BarcodeScannerController {
             final inputImageCamera = InputImage.fromBytes(
                 bytes: bytes, inputImageData: inputImageData);
             scannerBarCode(inputImageCamera);
-          } catch (e) {
-            print(e);
+          } catch (e, s) {
+            log('Erro na leitura $e', error: e, stackTrace: s, name: 'ERROR');
           }
         }
       });
