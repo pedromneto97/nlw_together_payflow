@@ -72,7 +72,7 @@ class _BarcodeScreenState extends State<BarcodeScreen> {
                 children: [
                   Expanded(
                     child: Container(
-                      color: Colors.black,
+                      color: Colors.black.withOpacity(0.6),
                     ),
                   ),
                   Expanded(
@@ -83,7 +83,7 @@ class _BarcodeScreenState extends State<BarcodeScreen> {
                   ),
                   Expanded(
                     child: Container(
-                      color: Colors.black,
+                      color: Colors.black.withOpacity(0.6),
                     ),
                   ),
                 ],
