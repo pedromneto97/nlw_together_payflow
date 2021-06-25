@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nlw_together_payflow/modules/insert_boleto/insert_boleto_screen.dart';
 
 import 'modules/barcode/barcode_screen.dart';
 import 'modules/home/home_screen.dart';
+import 'modules/insert_boleto/insert_boleto_screen.dart';
 import 'modules/login/login_screen.dart';
 import 'modules/splash/splash_screen.dart';
 import 'navigation_service.dart';
 import 'shared/auth/auth_bloc.dart';
 import 'shared/themes/colors.dart';
+import 'shared/themes/text_styles.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -35,7 +36,29 @@ class AppWidget extends StatelessWidget {
           title: 'Payflow',
           theme: ThemeData(
             primaryColor: AppColors.primary,
+            textSelectionTheme: TextSelectionThemeData(
+              cursorColor: AppColors.primary,
+              selectionColor: AppColors.primary.withOpacity(0.4),
+              selectionHandleColor: AppColors.primary,
+            ),
             scaffoldBackgroundColor: AppColors.background,
+            inputDecorationTheme: InputDecorationTheme(
+              focusedBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: AppColors.primary,
+                  width: 0,
+                ),
+              ),
+              enabledBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: AppColors.stroke,
+                  width: 0,
+                ),
+              ),
+              focusColor: AppColors.primary,
+              floatingLabelBehavior: FloatingLabelBehavior.never,
+              labelStyle: TextStyles.input,
+            ),
           ),
           initialRoute: SplashScreen.screenName,
           routes: {
