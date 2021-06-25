@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../shared/themes/colors.dart';
 import '../../shared/themes/text_styles.dart';
-import '../../shared/widgets/payflow_input/payflow_input.dart';
+import '../../shared/widgets/input_icon/input_icon.dart';
 import '../../shared/widgets/set_buttons/set_buttons.dart';
 
 class InsertBoletoScreen extends StatefulWidget {
@@ -17,8 +18,13 @@ class InsertBoletoScreen extends StatefulWidget {
 
 class _InsertBoletoScreenState extends State<InsertBoletoScreen> {
   final TextEditingController ticketNameController = TextEditingController();
-  final TextEditingController expiresDateController = TextEditingController();
-  final TextEditingController amountController = TextEditingController();
+  final TextEditingController expiresDateController = MaskedTextController(
+    mask: '00/00/0000',
+  );
+  final TextEditingController amountController = MoneyMaskedTextController(
+    leftSymbol: 'R\$',
+    decimalSeparator: ',',
+  );
   final TextEditingController barcodeController = TextEditingController();
 
   @override
@@ -56,9 +62,14 @@ class _InsertBoletoScreenState extends State<InsertBoletoScreen> {
               right: 24,
               bottom: 16,
             ),
-            child: PayflowInput(
-              icon: Icons.feed_rounded,
-              label: 'Nome do boleto',
+            child: TextFormField(
+              decoration: const InputDecoration(
+                prefixIcon: PayflowInputIcon(
+                  icon: Icons.feed_rounded,
+                ),
+                labelText: 'Nome do boleto',
+              ),
+              keyboardType: TextInputType.name,
               controller: ticketNameController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -74,9 +85,14 @@ class _InsertBoletoScreenState extends State<InsertBoletoScreen> {
               right: 24,
               bottom: 16,
             ),
-            child: PayflowInput(
-              icon: FontAwesomeIcons.timesCircle,
-              label: 'Vencimento',
+            child: TextFormField(
+              decoration: const InputDecoration(
+                prefixIcon: PayflowInputIcon(
+                  icon: FontAwesomeIcons.timesCircle,
+                ),
+                labelText: 'Vencimento',
+              ),
+              keyboardType: TextInputType.datetime,
               controller: expiresDateController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -92,9 +108,14 @@ class _InsertBoletoScreenState extends State<InsertBoletoScreen> {
               right: 24,
               bottom: 16,
             ),
-            child: PayflowInput(
-              icon: Icons.account_balance_wallet_rounded,
-              label: 'Valor',
+            child: TextFormField(
+              decoration: const InputDecoration(
+                prefixIcon: PayflowInputIcon(
+                  icon: Icons.account_balance_wallet_rounded,
+                ),
+                labelText: 'Valor',
+              ),
+              keyboardType: TextInputType.number,
               controller: amountController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -110,9 +131,15 @@ class _InsertBoletoScreenState extends State<InsertBoletoScreen> {
               right: 24,
               bottom: 16,
             ),
-            child: PayflowInput(
-              icon: FontAwesomeIcons.barcode,
-              label: 'Código',
+            child: TextFormField(
+              decoration: const InputDecoration(
+                prefixIcon: PayflowInputIcon(
+                  icon: FontAwesomeIcons.barcode,
+                ),
+                labelText: 'Código',
+              ),
+              keyboardType: TextInputType.number,
+              inputFormatters: [],
               controller: barcodeController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
