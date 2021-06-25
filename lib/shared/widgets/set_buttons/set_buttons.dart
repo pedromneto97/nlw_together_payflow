@@ -8,13 +8,13 @@ class SetButtons extends StatelessWidget {
   final VoidCallback primaryOnPressed;
   final String secondaryLabel;
   final VoidCallback secondaryOnPressed;
-  final bool enablePrimaryColor;
+  final Button buttonPrimaryColor;
 
   const SetButtons({
     Key? key,
     required this.primaryLabel,
     required this.primaryOnPressed,
-    this.enablePrimaryColor = false,
+    this.buttonPrimaryColor = Button.none,
     required this.secondaryLabel,
     required this.secondaryOnPressed,
   }) : super(key: key);
@@ -32,7 +32,7 @@ class SetButtons extends StatelessWidget {
               onPressed: primaryOnPressed,
               child: Text(
                 primaryLabel,
-                style: enablePrimaryColor
+                style: buttonPrimaryColor == Button.primary
                     ? TextStyles.buttonPrimary
                     : TextStyles.buttonHeading,
               ),
@@ -48,7 +48,9 @@ class SetButtons extends StatelessWidget {
               onPressed: secondaryOnPressed,
               child: Text(
                 secondaryLabel,
-                style: TextStyles.buttonHeading,
+                style: buttonPrimaryColor == Button.secondary
+                    ? TextStyles.buttonPrimary
+                    : TextStyles.buttonHeading,
               ),
             ),
           ),

@@ -65,7 +65,7 @@ class NoBarcodeDetectedBottomSheet extends StatelessWidget {
                       primaryOnPressed: primaryOnPressed,
                       secondaryLabel: secondaryLabel,
                       secondaryOnPressed: secondaryOnPressed,
-                      enablePrimaryColor: true,
+                      buttonPrimaryColor: Button.primary,
                     ),
                   ],
                 ),
