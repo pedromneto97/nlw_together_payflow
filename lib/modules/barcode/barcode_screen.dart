@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:nlw_together_payflow/modules/barcode/barcode_controller.dart';
-import 'package:nlw_together_payflow/modules/barcode/barcode_status.dart';
-import 'package:nlw_together_payflow/modules/insert_boleto/insert_boleto_screen.dart';
-import 'package:nlw_together_payflow/shared/widgets/bottom_sheet/no_barcode_detected_bottom_sheet.dart';
 
 import '../../shared/themes/colors.dart';
 import '../../shared/themes/text_styles.dart';
+import '../../shared/widgets/bottom_sheet/no_barcode_detected_bottom_sheet.dart';
 import '../../shared/widgets/set_buttons/set_buttons.dart';
+import '../insert_boleto/insert_boleto_screen.dart';
+import 'barcode_controller.dart';
+import 'barcode_status.dart';
 
 class BarcodeScreen extends StatefulWidget {
   static const screenName = 'barcode_screen';
@@ -90,7 +90,10 @@ class _BarcodeScreenState extends State<BarcodeScreen> {
               ),
               bottomNavigationBar: SetButtons(
                 primaryLabel: 'Inserir código do boleto',
-                primaryOnPressed: () {},
+                primaryOnPressed: () => Navigator.pushReplacementNamed(
+                  context,
+                  InsertBoletoScreen.screenName,
+                ),
                 secondaryLabel: 'Adicionar da galeria',
                 secondaryOnPressed: controller.scanWithImagePicker,
               ),
@@ -107,7 +110,10 @@ class _BarcodeScreenState extends State<BarcodeScreen> {
                   primaryLabel: 'Escanear novamente',
                   primaryOnPressed: controller.scanWithCamera,
                   secondaryLabel: 'Digitar código',
-                  secondaryOnPressed: () {},
+                  secondaryOnPressed: () => Navigator.pushReplacementNamed(
+                    context,
+                    InsertBoletoScreen.screenName,
+                  ),
                 );
               }
               return const SizedBox();
