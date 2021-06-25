@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nlw_together_payflow/modules/insert_boleto/insert_boleto_screen.dart';
 
 import 'modules/barcode/barcode_screen.dart';
 import 'modules/home/home_screen.dart';
@@ -42,6 +43,8 @@ class AppWidget extends StatelessWidget {
             LoginScreen.screenName: (context) => const LoginScreen(),
             HomeScreen.screenName: (context) => const HomeScreen(),
             BarcodeScreen.screenName: (context) => const BarcodeScreen(),
+            InsertBoletoScreen.screenName: (context) =>
+                const InsertBoletoScreen(),
           },
           navigatorKey: NavigationService().navigatorKey,
         ),
