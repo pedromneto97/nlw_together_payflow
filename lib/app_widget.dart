@@ -8,6 +8,7 @@ import 'modules/login/login_screen.dart';
 import 'modules/splash/splash_screen.dart';
 import 'navigation_service.dart';
 import 'shared/auth/auth_bloc.dart';
+import 'shared/bills/bills_bloc.dart';
 import 'shared/themes/colors.dart';
 import 'shared/themes/text_styles.dart';
 
@@ -16,8 +17,15 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AuthBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AuthBloc(),
+        ),
+        BlocProvider(
+          create: (context) => BillsBloc(),
+        )
+      ],
       child: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is SuccessAuthState) {
