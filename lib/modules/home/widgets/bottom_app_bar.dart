@@ -31,7 +31,7 @@ class PayflowBottomAppBar extends StatelessWidget {
               onPressed: () => onChangeIndex(0),
               color: getColorForIndex(0),
               icon: const Icon(
-                Icons.home,
+                Icons.home_outlined,
               ),
             ),
           ),
