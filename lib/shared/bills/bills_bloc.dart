@@ -7,9 +7,6 @@ import 'package:meta/meta.dart';
 import '../models/bill.dart';
 
 part 'bills_event.dart';
-
-    .dart';
-
 part 'bills_state.dart';
 
 class BillsBloc extends HydratedBloc<BillsEvent, BillsState> {
