@@ -4,7 +4,7 @@ import '../../shared/themes/colors.dart';
 import '../../shared/themes/text_styles.dart';
 import '../../shared/widgets/bottom_sheet/no_barcode_detected_bottom_sheet.dart';
 import '../../shared/widgets/set_buttons/set_buttons.dart';
-import '../insert_boleto/insert_boleto_screen.dart';
+import '../insert_bill/insert_bill_screen.dart';
 import 'barcode_controller.dart';
 import 'barcode_status.dart';
 
@@ -22,7 +22,10 @@ class _BarcodeScreenState extends State<BarcodeScreen> {
 
   void statusListener() {
     if (controller.status.hasBarcode) {
-      Navigator.pushReplacementNamed(context, InsertBoletoScreen.screenName);
+      Navigator.of(context).pushReplacementNamed(
+        InsertBillScreen.screenName,
+        arguments: controller.status.barcode,
+      );
     }
   }
 
@@ -92,7 +95,7 @@ class _BarcodeScreenState extends State<BarcodeScreen> {
                 primaryLabel: 'Inserir código do boleto',
                 primaryOnPressed: () => Navigator.pushReplacementNamed(
                   context,
-                  InsertBoletoScreen.screenName,
+                  InsertBillScreen.screenName,
                 ),
                 secondaryLabel: 'Adicionar da galeria',
                 secondaryOnPressed: controller.scanWithImagePicker,
@@ -112,7 +115,7 @@ class _BarcodeScreenState extends State<BarcodeScreen> {
                   secondaryLabel: 'Digitar código',
                   secondaryOnPressed: () => Navigator.pushReplacementNamed(
                     context,
-                    InsertBoletoScreen.screenName,
+                    InsertBillScreen.screenName,
                   ),
                 );
               }
