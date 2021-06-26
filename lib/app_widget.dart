@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'modules/barcode/barcode_screen.dart';
 import 'modules/home/home_screen.dart';
-import 'modules/insert_boleto/insert_boleto_screen.dart';
+import 'modules/insert_bill/insert_bill_screen.dart';
 import 'modules/login/login_screen.dart';
 import 'modules/splash/splash_screen.dart';
 import 'navigation_service.dart';
@@ -66,8 +66,11 @@ class AppWidget extends StatelessWidget {
             LoginScreen.screenName: (context) => const LoginScreen(),
             HomeScreen.screenName: (context) => const HomeScreen(),
             BarcodeScreen.screenName: (context) => const BarcodeScreen(),
-            InsertBoletoScreen.screenName: (context) =>
-                const InsertBoletoScreen(),
+            InsertBillScreen.screenName: (context) => InsertBillScreen(
+                  barcode:
+                      ModalRoute.of(context)!.settings.arguments?.toString() ??
+                          '',
+                ),
           },
           navigatorKey: NavigationService().navigatorKey,
         ),
