@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../barcode/barcode_screen.dart';
+import '../extract_page/extract_page.dart';
+import '../my_bills/my_bills_screen.dart';
 import 'widgets/bottom_app_bar.dart';
 import 'widgets/home_app_bar.dart';
 
@@ -26,17 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final items = [
-      Center(
-        child: Container(
-          color: Colors.red,
-        ),
-      ),
-      Center(
-        child: Container(
-          color: Colors.blue,
-        ),
-      )
+    const items = [
+      MyBillsScreen(),
+      ExtractPage(),
     ];
 
     return Scaffold(
